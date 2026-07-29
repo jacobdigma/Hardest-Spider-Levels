@@ -1,0 +1,244 @@
+:root {
+    --color-background: white;
+    --color-on-background: black;
+    --color-background-hover: #eee;
+    --color-on-background-hover: black;
+    --color-primary: #0066ff;
+    --color-on-primary: white;
+    --color-error: #de0000;
+    --color-on-error: white;
+}
+
+main.dark,
+header.dark {
+    color-scheme: dark;
+    --color-background: #1c1b1f;
+    --color-on-background: white;
+    --color-background-hover: #27262c;
+    --color-on-background-hover: white;
+    --color-primary: #283593;
+    --color-primary-disabled: #1f213c;
+    --color-on-primary: white;
+    --color-error: #de0000;
+    --color-on-error: white;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+header,
+main {
+    background-color: var(--color-background);
+    color: var(--color-on-background);
+    display: grid;
+    grid-template-columns: minmax(16rem, 1fr) minmax(16rem, 2fr) minmax(
+            16em,
+            1fr
+        );
+    column-gap: 2rem;
+}
+
+header {
+    display: flex;
+    padding-inline: calc(25vw - 10rem);
+    height: 4rem;
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+}
+@media screen and (min-width: 1366px) {
+    header {
+        display: grid;
+        padding-inline: 0;
+    }
+}
+header .logo {
+    justify-self: end;
+    align-self: center;
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+}
+header .nav {
+    flex: 1;
+}
+
+main {
+    height: 0;
+    flex: 1;
+    display: grid;
+    grid-template-rows: minmax(0, 1fr);
+    column-gap: 2rem;
+}
+main > div {
+    overflow-y: auto;
+}
+
+.spinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-column: span 3;
+}
+
+input[type="checkbox"] {
+    height: 1.25rem;
+    width: 1.25rem;
+    cursor: pointer;
+    margin: 0;
+}
+
+/* --- ABSOLUTNÍ OPRAVA NAMAČKANÉHO TEXTU V DETAILU HRÁČE --- */
+
+/* Resetujeme pevné pozice, které způsobovaly překrývání textů */
+.player-container, 
+.player-container .player,
+.player-container .player-stats-grid,
+.player-container div {
+    position: static !important;
+    height: auto !important;
+    width: auto !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Celý prostřední panel roztáhneme a dáme mu bílé pozadí */
+.page-leaderboard-container {
+    display: flex !important;
+    gap: 20px !important;
+    align-items: flex-start !important; /* Umožní vnitřním panelům mít rozdílnou výšku */
+    justify-content: center !important; /* Vycentruje celou stránku na střed monitoru */
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 20px !important;
+}
+
+/* Hlavní jméno hráče dostane prostor */
+.player-container h1.player-name {
+    color: #000000 !important;
+    font-size: 2.2rem !important;
+    font-weight: 800 !important;
+    margin-bottom: 20px !important;
+    display: block !important;
+}
+/* Srovnání statistik (Rank, Score) pěkně do flexboxu s mezerami */
+.player-container .player-stats-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 40px !important;
+    padding: 15px 0 !important;
+    border-bottom: 1px solid #e1e4e8 !important;
+    margin-bottom: 15px !important;
+}
+
+/* Každá jednotlivá statistika uvnitř gridu */
+.player-container .player-stats-grid div {
+    display: block !important;
+    flex: unset !important;
+}
+
+/* Šedé popisky (Demonlist rank, atd.) */
+.player-container .stats-label {
+    color: #65676b !important;
+    font-size: 0.9rem !important;
+    text-transform: uppercase !important;
+    font-weight: 600 !important;
+    margin-bottom: 5px !important;
+}
+
+/* Modrá čísla a hodnoty statistik */
+.player-container h3, 
+.player-container h4 {
+    color: #0070ff !important;
+    font-size: 1.6rem !important;
+    font-weight: 700 !important;
+    margin: 0 !important;
+}
+
+/* Úprava zelené barvy pro nejtěžšího démona (Hardest demon) */
+.player-container h4 {
+    color: #2bba74 !important;
+    font-size: 1.1rem !important;
+}
+
+/* Nadpisy sekcí (Demons completed, Demons verified, Progress on) */
+.player-container h2 {
+    color: #000000 !important;
+    font-size: 1.4rem !important;
+    font-weight: 700 !important;
+    margin: 25px 0 15px 0 !important;
+    padding-bottom: 8px !important;
+    border-bottom: 2px solid #0070ff !important;
+    display: block !important;
+}
+
+/* Samotný odstavec s démony, který se teď krásně zalomí a nebude se mačkat */
+.demons-list-paragraph,
+.player-container .demons-list-paragraph {
+    display: block !important;
+    line-height: 2 !important;
+    font-size: 1.05rem !important;
+    color: #333333 !important;
+    word-wrap: break-word !important;
+}
+
+/* Odkazy na jednotlivé démony */
+.player-container a {
+    color: #0070ff !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    display: inline !important;
+}
+
+/* --- MAGICKÝ CSS TRIK: Automatické zobrazení jména "by player" za každým levelem --- */
+.player-container a::after {
+    content: " by player" !important;
+    color: #65676b !important;
+    font-size: 0.95rem !important;
+    font-weight: normal !important;
+    margin-left: 3px !important;
+    display: inline !important;
+}
+/* Tímto srovnáme celou stránku (sidebar + detail) vedle sebe a dolů */
+/* Tímto srovnáme celou stránku (sidebar + detail) vedle sebe a vycentrujeme ji */
+main {
+    display: flex !important;
+    gap: 30px !important;
+    align-items: flex-start !important;
+    justify-content: center !important; /* TENTO ŘÁDEK TI TO HODÍ DOPROSTŘED STRÁNKY */
+    min-height: calc(100vh - 100px) !important;
+    padding: 30px !important;
+    box-sizing: border-box !important;
+}
+
+/* Tímto natvrdo uzamkneme prostřední panel, aby šel až dolů a byl užší */
+/* Tímto natvrdo uzamkneme prostřední panel, vycentrujeme ho a dáme mu font Montserrat */
+main > div:nth-child(2) {
+    flex: 1 !important;
+    max-width: 800px !important;
+    min-height: calc(100vh - 160px) !important;
+    background-color: #ffffff !important;
+    border: 1px solid #e1e4e8 !important;
+    border-radius: 8px !important;
+    padding: 30px !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05) !important;
+    box-sizing: border-box !important;
+    margin: 0 auto !important; 
+
+    /* NOVÝ FONT PRO CELÝ PROFIL HRÁČE: */
+    font-family: "Montserrat", sans-serif !important;
+    letter-spacing: -0.2px !important;
+}
+
+/* Pokud chceš Montserrat úplně pro celou kartu včetně seznamu hráčů, přidej ještě tohle: */
+.player-container {
+    font-family: "Montserrat", sans-serif !important;
+}

@@ -1,0 +1,27 @@
+[
+    {
+        "role": "owner",
+        "name": "stetkos",
+        "link": "https://www.youtube.com/@stetkosGD"
+    },
+    {
+        "role": "admin",
+        "name": "",
+        "link": ""
+    },
+    {
+        "role": "helper",
+        "name": "",
+        "link": ""
+    },
+    {
+        "role": "trial",
+        "name": "",
+        "link": ""
+    },
+    {
+        "role": "dev",
+        "name": "",
+        "link": ""
+    }
+]

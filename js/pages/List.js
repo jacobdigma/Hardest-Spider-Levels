@@ -117,7 +117,7 @@ export default {
                 // --- EXTENDED LIST ---
                 { name: "level", author: "na", verifier: "na", points: 200, type: "extended", minimum: 0, verification: "", records: [] },
                 // --- LEGACY LIST ---
-                { name: "level", author: "na", verifier: "na", points: 200, type: "legacy", minimum: 0, verification: "", records: [] },
+                { name: "level", author: "na", verifier: "na", points: 200, type: "legacy", minimum: 0, verification: "", records: [] }
         
     },
        mounted() {

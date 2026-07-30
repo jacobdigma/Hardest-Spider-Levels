@@ -28,25 +28,11 @@ export default {
             listData: [],
             packs: [
                 {
-                    name: "Neptune pack 1",
+                    name: "example pack",
                     color: "#CD7F32",
-                    levels: ["xStep V2", "Clutterfunk V2", "Electroman Adventures V2"]
+                    levels: "level1", "level2", "legacy"]
                 },
-                {
-                    name: "Digma Pack",
-                    color: "#C0C0C0",
-                    levels: ["m tolot", "Speed Racer", "Blackfire Backfire"]
-                },
-                {
-                    name: "Noument Pack",
-                    color: "#FFD700",
-                    levels: ["Noument", "Unnerfed noument", "Hellishment"]
-                },
-                {
-                    name: "RobTop Pack",
-                    color: "#0096FF",
-                    levels: ["Deadlocked", "Theory of Everything 2", "Clubstep"]
-                }
+        
             ]
         };
     },

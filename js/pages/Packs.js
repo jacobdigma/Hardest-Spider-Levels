@@ -30,9 +30,8 @@ export default {
                 {
                     name: "example pack",
                     color: "#CD7F32",
-                    levels: "level1", "level2", "legacy"
-                },
-        
+                    levels: "level1", "level2", "legacy",
+                }
             ]
         };
     },
